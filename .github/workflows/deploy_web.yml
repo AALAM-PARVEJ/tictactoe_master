@@ -1,4 +1,4 @@
-# redeploy trigger 1
+# Deploy Flutter Web
 name: Deploy Flutter Web
 
 on:
@@ -11,26 +11,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout repository
       - uses: actions/checkout@v3
 
+      # Setup Flutter
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.29.2'
           channel: 'stable'
 
+      # Enable web support
       - name: Enable Web
         run: flutter config --enable-web
 
+      # Install dependencies
       - name: Install dependencies
         run: flutter pub get
 
+      # Ensure web folder exists
       - name: Create missing web folder
         run: flutter create .
 
+      # Build Flutter web app
       - name: Build Web
         run: flutter build web --release
 
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -39,3 +46,4 @@ jobs:
           user_name: "AALAM-PARVEJ"
           user_email: "aalamp140@gmail.com"
           force_orphan: true
+          commit_message: "Deploy Flutter Web App 🌐"
