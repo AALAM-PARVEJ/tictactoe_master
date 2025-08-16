@@ -35,3 +35,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build/web
+          user_name: "AALAM-PARVEJ"
+          user_email: "aalamp140@gmail.com"
+          force_orphan: true
