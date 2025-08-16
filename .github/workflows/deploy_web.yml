@@ -35,7 +35,7 @@ jobs:
 
       # Build Flutter web app
       - name: Build Web
-        run: flutter build web --release
+        run: flutter build web --release --release --base-href "/tictactoe_master/"
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
